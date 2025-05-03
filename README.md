@@ -8,5 +8,29 @@
 | ------ | --------- | ------ |
 | 潘煜智 | 110703013 | 資訊四 |
 
+## Web Crawler Usage
+- run
+    ```bash
+    cd webCrawler
+    npm install
+    npx ts-node src/crawl.ts
+    ```
+- dataset destination
+    ```lua
+    webCrawler
+    ├── .gitignore
+    ├── package.json
+    ├── package-lock.json
+    ├── tsconfig.json
+    ├── README.md
+    ├── dataset/            # destination datasets
+    │   ├── wenshan.csv
+    │   └── wenshan.json
+    ├── node_modules/
+    ├── src/
+    │   └── crawl.ts
+    └── tmp/
+    ```
+
 ## Reference
 - [內政部不動產交易實價查詢服務網](https://lvr.land.moi.gov.tw/)
