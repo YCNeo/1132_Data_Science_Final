@@ -13,7 +13,7 @@
     ```bash
     cd webCrawler
     npm install
-    npx ts-node src/crawl.ts
+    npm run crawl
     ```
 - dataset destination
     ```lua
