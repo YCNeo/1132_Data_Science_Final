@@ -8,28 +8,15 @@
 | ------ | --------- | ------ |
 | 潘煜智 | 110703013 | 資訊四 |
 
-## Web Crawler Usage
-- run
-    ```bash
-    cd webCrawler
-    npm install
-    npm run crawl
-    ```
-- dataset destination
+## Dataset
+- file structure
     ```lua
-    webCrawler
+    1132_Data_Science_Final
     ├── .gitignore
-    ├── package.json
-    ├── package-lock.json
-    ├── tsconfig.json
     ├── README.md
     ├── dataset/            # destination datasets
     │   ├── wenshan.csv
     │   └── wenshan.json
-    ├── node_modules/
-    ├── src/
-    │   └── crawl.ts
-    └── tmp/
     ```
 
 ## Reference
