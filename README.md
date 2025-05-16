@@ -13,7 +13,7 @@
 │   ├── taipei_other.csv   # 其他房價交易數據
 │   ├── other_trades_w_mrt.csv # 其他房價數據（含捷運站資訊）
 │   └── taipei_rent_clean.csv  # 清理後的租金數據
-├── src/                   # 源代碼目錄
+├── mrt_feature/           # 捷運站特徵處理目錄
 │   ├── main.py           # 主程式
 │   ├── geocoding.py      # 地理編碼處理
 │   └── mrt_features.py   # 捷運站特徵處理
@@ -39,7 +39,7 @@
 
 ## 功能模組
 
-### 1. 數據處理 (src/)
+### 1. 捷運站特徵處理 (mrt_feature/)
 - **地理編碼處理** (`geocoding.py`)
   - 將地址轉換為經緯度座標
   - 使用 ArcGIS 地理編碼服務
@@ -96,11 +96,11 @@ R -e "install.packages(c('ggplot2', 'dplyr', 'tidyr', 'lmtest', 'car'))"
 ### 1. 數據處理
 ```bash
 # 執行完整處理流程
-python src/main.py
+python mrt_feature/main.py
 
 # 或分步執行
-python src/geocoding.py
-python src/mrt_features.py
+python mrt_feature/geocoding.py
+python mrt_feature/mrt_features.py
 ```
 
 ### 2. 模型分析
