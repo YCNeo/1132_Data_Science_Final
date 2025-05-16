@@ -1,4 +1,3 @@
-
 # 台北市房價預測分析專案
 
 ## 專案概述
@@ -98,4 +97,3 @@ pip install pandas numpy requests
 ## 參考資料
 - [內政部不動產交易實價查詢服務網](https://lvr.land.moi.gov.tw/)
 - [ArcGIS 地理編碼服務](https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer)
-
