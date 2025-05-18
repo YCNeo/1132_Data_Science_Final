@@ -1,0 +1,14 @@
+services:
+  data_crawl:
+    build:
+      context: .
+      dockerfile: dockerfile
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - data_crawl_network
+
+networks:
+  data_crawl_network:
