@@ -1,0 +1,10 @@
+.navbar, .tab-content, .card{
+    border-radius: 12px !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.btn {
+    border-radius: 8px !important;
+  }
+
+
+  

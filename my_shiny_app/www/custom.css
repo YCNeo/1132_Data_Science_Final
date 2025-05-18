@@ -1,0 +1,39 @@
+.icon-circle {
+    display: inline-block;        
+    width: 64px;                  
+    height: 64px;                 
+    line-height: 64px;            
+    text-align: center;           
+    border-radius: 50% !important;
+    background-color: #f0f0f0;    
+    font-size: 16px !important;   
+    color: #333;                  
+  }
+  .btn-no-border {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  .custom-title {
+    margin-left: 50px;
+    margin-top: 10px;
+    font-size: 2.5em;
+  }
+  .my-icon-red {
+    color: rgb(103, 7, 72);
+  }
+  .bg-my-yellow {
+    background-color: #faf3e1 !important;
+  }
+/* www/custom.css */
+.my-card {
+    margin: 2rem 0;           /* 上下各 2rem */
+    padding: 1.5rem;          /* 內距 1.5rem */
+  }
+  .my-card .card-title {
+    margin-bottom: 1rem;      /* 標題底部間距 */
+  }
+  .my-card .card-text {
+    margin-bottom: 0.75rem;   /* 文字段落間距 */
+  }
+  
