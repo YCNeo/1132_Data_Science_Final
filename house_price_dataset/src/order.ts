@@ -1,18 +1,27 @@
+/**
+ * ========================================================================== *
+ *  File        : order.ts                                                    *
+ *  Purpose     : Apply a canonical column order to every CSV in /dataset.    *
+ *                                                                            *
+ *  Usage       : ts-node order.ts                                            *
+ *                                                                            *
+ *  Workflow    : 1) For each CSV                                             *
+ *                   – Parse header                                           *
+ *                   – Reorder via headerOrder array                          *
+ *                   – Overwrite file in place                                *
+ *                                                                            *
+ *  Source file : Any pipeline CSV in /root/dataset                           *
+ *  Export file : Overwrites the same path                                    *
+ *  Simple rule : Unlisted columns keep original relative order               *
+ *  Updated     : 2025-05-26                                                  *
+ * ========================================================================== *
+ */
+
 import { promises as fs } from "fs";
 import * as path from "path";
 import { parse } from "csv-parse/sync";
 import { stringify } from "csv-stringify/sync";
 
-/**
- * Canonical (preferred) column order.
- * ────────────────────────────────────
- * We **never** create or drop columns.
- * ‑ Only columns that already exist in the source CSV are kept.
- * ‑ Columns common to both the CSV and `headerOrder` appear first, in
- *   `headerOrder`'s sequence.
- * ‑ All other columns retain their original left‑to‑right order and are
- *   appended afterwards.
- */
 const headerOrder: readonly string[] = [
   "編號",
   "鄉鎮市區",
@@ -24,7 +33,7 @@ const headerOrder: readonly string[] = [
   "主要用途",
   "主要用途分類",
   "租賃層次",
-  "租賃層次(四類)",
+  "租賃層次分類",
   "總樓層數",
   "建物型態",
   "交易筆棟數-土地",
@@ -36,7 +45,7 @@ const headerOrder: readonly string[] = [
   "有無附傢俱",
   "有無電梯",
   "主要建材",
-  "建材分類",
+  "主要建材分類",
   "建物現況格局-房",
   "建物現況格局-廳",
   "建物現況格局-衛",
