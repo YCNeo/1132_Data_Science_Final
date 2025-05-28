@@ -41,8 +41,8 @@ use_columns <- c(
   "中和新蘆線", "板南線", "環狀線", "附近建物單位成交均價"
 ) 
 
-# 2. 經過測試，選擇拿掉9個feature的 model
-to_remove <- c( "租賃層次(四類)", "建物現況格局-隔間", "交易筆棟數-土地","有無管理員", "有無附傢俱", "建材分類", "有無管理組織", "附屬設備-冰箱", "交易筆棟數-建物")
+# 2. 經過測試，特徵全留下
+to_remove <- c()
 # 用 setdiff() 移除指定欄位
 use_columns_clean <- setdiff(use_columns, to_remove)
 
@@ -219,7 +219,7 @@ final_result <- test_df %>%
   mutate(Predicted = test_preds,
          AbsError = abs(Predicted - 總額元),
          MAPE = abs(Predicted - 總額元) / 總額元)
-write.csv(final_result, "lgbm_model_result.csv", row.names = FALSE)  # 可用於後續分析
+write.csv(final_result, "lgbm_model_result_on_all_features.csv", row.names = FALSE)  # 可用於後續分析
 
 # 14. 取得 feature importance
 importance <- lgb.importance(final_model, percentage = TRUE)
@@ -229,4 +229,9 @@ importance$Frequency <- format(importance$Frequency, scientific = FALSE, digits 
 print(importance)
 
 # 15. 存下模型（範例: 存成 txt 格式）
-# lgb.save(final_model, "final_lgbm_model.txt")  # 這行會存成 .txt，可以用 lgb.load() 載回
+lgb.save(final_model, "final_lgbm_model.txt")  # 這行會存成 .txt，可以用 lgb.load() 載回
+# 16. 存下特徵順序
+writeLines(colnames(train_mat), "lgbm_feature_order.txt")
+# 17. 存下所有類別欄位的 level order
+saveRDS(lapply(train_df[, categorical_cols], levels), "factor_levels.rds")
+
