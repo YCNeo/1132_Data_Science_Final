@@ -8,32 +8,159 @@
     background-color: #f0f0f0;    
     font-size: 16px !important;   
     color: #333;                  
-  }
-  .btn-no-border {
+}
+
+.btn-no-border {
     border: none !important;
     background: transparent !important;
     padding: 0 !important;
-  }
-  .custom-title {
+}
+
+.custom-title {
     margin-left: 50px;
     margin-top: 10px;
-    font-size: 2.5em;
-  }
-  .my-icon-red {
+    font-size: 2em;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.my-icon-red {
     color: rgb(103, 7, 72);
-  }
-  .bg-my-yellow {
-    background-color: #faf3e1 !important;
-  }
-/* www/custom.css */
-.my-card {
-    margin: 2rem 0;           /* 上下各 2rem */
-    padding: 1.5rem;          /* 內距 1.5rem */
-  }
-  .my-card .card-title {
-    margin-bottom: 1rem;      /* 標題底部間距 */
-  }
-  .my-card .card-text {
-    margin-bottom: 0.75rem;   /* 文字段落間距 */
-  }
+}
+
+.bg-my-yellow {
+    background-color: #ffffff !important;
+}
+
+/* 卡片樣式 */
+.card.my-card {
+    margin: 2rem 0;
+    padding: 1.5rem;
+}
+
+.card.my-card .card-body {
+    padding: 3rem !important;
+}
+
+.card.my-card h5 {
+    margin-bottom: 3rem !important;
+    line-height: 3 !important;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    transform: scaleX(1.1);
+    transform-origin: left;
+}
+
+.card.my-card p {
+    margin-bottom: 3rem !important;
+    line-height: 3 !important;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.card.my-card ul {
+    margin-top: 3rem !important;
+}
+
+.card.my-card li {
+    margin-bottom: 3rem !important;
+    line-height: 3 !important;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.card.my-card .card-footer {
+    padding: 1rem !important;
+    margin-top: 1rem !important;
+}
+
+/* 新增文字間距相關樣式 */
+.my-card h5 {
+    margin-bottom: 1.5rem;    /* 標題下方間距 */
+    line-height: 1.6;         /* 行高 */
+}
+
+.my-card ul {
+    margin-top: 1.5rem;       /* 列表上方間距 */
+}
+
+.my-card li {
+    margin-bottom: 3rem;      /* 列表項目間距 */
+    line-height: 3;         /* 列表項目行高 */
+}
+
+.my-card p {
+    margin-bottom: 3rem;    /* 段落間距 */
+    line-height: 3;         /* 段落行高 */
+}
+
+/* 卡片內容間距 */
+.card-body {
+    padding: 3rem;          /* 卡片內容內距 */
+}
+
+.card-footer {
+    padding: 1rem;            /* 卡片底部內距 */
+    margin-top: 1rem;         /* 卡片底部上方間距 */
+}
+
+.btn.btn-light.shadow-sm {
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: #ffffff !important; /* Match card background */
+}
+
+/* 自定義歡迎頁面卡片按鈕的 hover/active 樣式 */
+.btn.btn-light.shadow-sm:hover,
+.btn.btn-light.shadow-sm:focus,
+.btn.btn-light.shadow-sm:active {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.btn.btn-light.shadow-sm:hover > .card,
+.btn.btn-light.shadow-sm:focus > .card,
+.btn.btn-light.shadow-sm:active > .card {
+  background-color: transparent !important; /* Make card background transparent on button hover/focus/active */
+  /* 可以根據需要添加其他 hover 效果，例如輕微的位移或邊框變化 */
+}
+
+/* Global Gradient Background */
+body {
+  background: linear-gradient(45deg, #ffffff,  #f3e7e7, #c9cade, #7bbad9); /* 45-degree gradient: white, light blue, blue */
+  min-height: 100vh; /* Ensure gradient covers the full viewport height */
+  background-attachment: fixed; /* Optional: fix background position */
+}
   
+/* Style for the welcome page cards (inside the button) - remove border, set background to white, allow Bootstrap shadow */
+.btn.btn-light.shadow-sm > .card {
+  border: none !important;
+  /* box-shadow: none !important; */ /* Removed to allow Bootstrap shadow */
+  background-color: #fbfafaa1 !important; /* Card background color set to white */
+}
+
+/* Style for the button wrapping the welcome page cards - remove shadow/outline/border, set background to transparent in all states */
+.btn.btn-light.shadow-sm,
+.btn.btn-light.shadow-sm:hover,
+.btn.btn-light.shadow-sm:focus,
+.btn.btn-light.shadow-sm:active {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  background-color: transparent !important; /* Button background color set to transparent */
+  border-color: transparent !important;
+  outline-color: transparent !important;
+  border-width: 0 !important;
+  outline-width: 0 !important;
+}
+
+/* Ensure card doesn't show its own background on button hover/focus/active - should already be white or transparent */
+.btn.btn-light.shadow-sm:hover > .card,
+.btn.btn-light.shadow-sm:focus > .card,
+.btn.btn-light.shadow-sm:active > .card {
+   background-color: transparent !important; /* Card background transparent on button hover/focus/active */
+}
+
+

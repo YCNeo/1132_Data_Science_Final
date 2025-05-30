@@ -1,15 +1,16 @@
 library(shiny)
 library(bslib)   # 一定要載入 bslib
+library(rsconnect)
 
 # 一次定義全站主題
 my_theme <- bs_theme(
   version            = 5,
-  primary            = "#1f4298",
-  secondary          = "#dfddbd",
-  base_font          = font_google("Shippori Mincho B1"),
-  heading_font       = font_google("Shippori Mincho B1"),
+  primary            = "#8084a1",
+  secondary          = "#514b54",
+  base_font          = font_google("Noto Sans TC"),
+  heading_font       = font_google("Noto Sans TC"),
   font_scale         = 1,
-  background_color   = "#2d69a5",
+  background_color   = "#0a114a",
 )
 
 
@@ -53,6 +54,7 @@ server <- function(input, output, session) {
     updateTabsetPanel(session, "tabs", selected = "model")
   })
   observeEvent(input$back_welcome, {
+    print("Global back_welcome clicked")
     updateTabsetPanel(session, "tabs", selected = "welcome")
   })
 }
