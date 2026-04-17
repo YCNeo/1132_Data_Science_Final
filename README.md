@@ -91,6 +91,37 @@ pip install pandas numpy requests
 R -e "install.packages(c('ggplot2', 'dplyr', 'tidyr', 'lmtest', 'car'))"
 ```
 
+## Docker Compose
+```bash
+docker compose up -d --build
+```
+
+容器啟動後：
+
+```bash
+# Shiny 前端
+# 瀏覽器開 http://localhost:3838
+
+# Python / R 執行環境
+docker compose exec workspace bash
+```
+
+也可以直接在容器內執行各語言腳本：
+
+```bash
+# Python：捷運特徵處理
+docker compose exec workspace python mrt_feature/main.py
+
+# R：迴歸分析
+docker compose exec workspace Rscript model/reg.R
+```
+
+停止環境：
+
+```bash
+docker compose down
+```
+
 ## 使用方式
 
 ### 1. 數據處理

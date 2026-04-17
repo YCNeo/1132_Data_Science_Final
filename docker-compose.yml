@@ -1,0 +1,21 @@
+services:
+  workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    command: sleep infinity
+    stdin_open: true
+    tty: true
+  shiny:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    command: R -e "shiny::runApp('/workspace', host='0.0.0.0', port=3838)"
+    ports:
+      - "3838:3838"
