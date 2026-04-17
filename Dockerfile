@@ -5,14 +5,14 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+        ca-certificates \
         r-base \
-        r-base-dev \
-        libcurl4-openssl-dev \
-        libssl-dev \
-        libxml2-dev \
-        gfortran \
-        make \
-        g++ \
+        r-cran-shiny \
+        r-cran-ggplot2 \
+        r-cran-dplyr \
+        r-cran-tidyr \
+        r-cran-lmtest \
+        r-cran-car \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace
@@ -20,7 +20,7 @@ WORKDIR /workspace
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-RUN Rscript -e "install.packages(c('shiny', 'ggplot2', 'dplyr', 'tidyr', 'lmtest', 'car'), repos='https://cloud.r-project.org')"
+RUN Rscript -e "stopifnot(requireNamespace('shiny', quietly = TRUE)); stopifnot(requireNamespace('ggplot2', quietly = TRUE)); stopifnot(requireNamespace('dplyr', quietly = TRUE)); stopifnot(requireNamespace('tidyr', quietly = TRUE)); stopifnot(requireNamespace('lmtest', quietly = TRUE)); stopifnot(requireNamespace('car', quietly = TRUE))"
 
 COPY . /workspace
 
